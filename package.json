@@ -4,5 +4,16 @@
     "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security"
-  }
+  },
+  "name": "test-bot",
+  "description": "A framework for creating Bots",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
