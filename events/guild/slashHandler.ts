@@ -1,4 +1,4 @@
-import { EmbedBuilder } from 'discord.js';
+import { CommandInteraction, EmbedBuilder } from 'discord.js';
 import { client } from '../..';
 
 class slashHandler {
@@ -6,12 +6,8 @@ class slashHandler {
         this.name = 'interactionCreate';
         this.nick = 'Slash';
     }
-
-    /**
-     *
-     * @param {import("discord.js").CommandInteraction} interaction
-     */
-    async run(interaction) {
+    
+    async run(interaction: CommandInteraction) {
         if (interaction.isChatInputCommand()) {
             const command = client.slashCommands.get(interaction.commandName);
             if (!command) {
