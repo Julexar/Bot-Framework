@@ -1,3 +1,4 @@
+import { Guild } from 'discord.js'
 import { client } from '../..';
 
 class Event {
@@ -10,7 +11,7 @@ class Event {
 
         client.user.setPresence(client.config.presence);
 
-        client.guilds.cache.forEach(guild => {
+        client.guilds.cache.forEach((guild: Guild) => {
             guild.commands.set(commandsArray)
             .then(() => {
                 console.log(`Successfully registered slash commands in ${guild.name}`);
