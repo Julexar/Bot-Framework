@@ -16,7 +16,13 @@ class slashHandler {
             const command = client.slashCommands.get(interaction.commandName);
             if (!command) {
                 return await interaction.reply({
-                    embeds: [new EmbedBuilder().setColor('Red').setTitle('Error 404: Command not found').setDescription("This Command doesn't exit within the Bot's files, please contact the Developer about this Issue.").setTimestamp()],
+                    embeds: [
+                        new EmbedBuilder()
+                            .setColor('Red')
+                            .setTitle('Error 404: Command not found')
+                            .setDescription("This Command doesn't exit within the Bot's files, please contact the Developer about this Issue.")
+                            .setTimestamp()
+                    ],
                 });
             }
 
@@ -29,7 +35,7 @@ class slashHandler {
                                 .setColor('Red')
                                 .setTitle('Error 403: Bot missing Permission')
                                 .setDescription('The Bot is missing the Permissions to run the command:\n' + perms.join(', '))
-                                .setTimestamp(),
+                                .setTimestamp()
                         ],
                     });
                 }
