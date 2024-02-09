@@ -2,6 +2,7 @@ import { Guild } from 'discord.js'
 import { client } from '../..';
 
 class Event {
+    name: string
     constructor() {
         this.name = 'ready';
     }
