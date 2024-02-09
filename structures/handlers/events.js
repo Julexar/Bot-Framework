@@ -21,15 +21,10 @@ class eventHandler {
 
                 name = event.name;
 
-                if (event.nick) {
-                    name += ` (${event.nick})`;
-                }
+                if (event.nick) name += ` (${event.nick})`;
 
-                if (event.once) {
-                    client.once(event.name, (...args) => event.run(...args, client));
-                } else {
-                    client.on(event.name, (...args) => event.run(...args, client));
-                }
+                if (event.once) client.once(event.name, (...args) => event.run(...args, client));
+                else client.on(event.name, (...args) => event.run(...args, client));
 
                 eventsTable.addRow(name, 'Success');
             }
