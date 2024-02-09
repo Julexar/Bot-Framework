@@ -1,33 +1,30 @@
 import Ascii from 'ascii-table';
-import fs from 'fs';
 import { client } from '../..';
+import { commands } from '../../commands/prefix';
 
 class prefixHandler {
     static async run() {
-        const prefixCommandsTable = new Ascii('Prefix Commands').setHeading('Name', 'Status', 'Reason');
-        const dirs = fs.readdirSync('./commands/prefix');
+        const commandsTable = new Ascii('Commands').setHeading('Name', 'Status', 'Reason');
 
-        for (const dir of dirs) {
-            const files = fs.readdirSync(`./commands/prefix/${dir}`);
+        for (const command of commands) {
+            let name: string;
 
-            for (const file of files) {
-                const module = await import(`../../commands/prefix/${dir}/${file}`);
-                const command = module.default;
-                let name;
+            if (!command.name || !command.run) return commandsTable.addRow(command.filename, 'Failed', 'Missing Name/Run');
 
-                if (!command.name || !command.run) return prefixCommandsTable.addRow(`${command.name || file}`, 'Failed', 'Missing Name/Run');
+            name = command.name;
 
-                name = command.name;
+            if (command.nick) name += ` (${command.nick})`;
 
-                if (command.nick) name += ` (${command.nick})`;
+            if (!command.enabled) return commandsTable.addRow(name, 'Failed', 'Disabled');
 
-                client.prefixCommands.set(command.name, command);
-                prefixCommandsTable.addRow(name, 'Success');
-            }
+            client.prefixCommands.set(command.name, command);
+            commandsTable.addRow(name, 'Success');
         }
 
-        console.log(prefixCommandsTable.toString());
+        console.log(commandsTable.toString());
     }
 }
 
-export default prefixHandler;
+const handler = prefixHandler;
+
+export { handler };
