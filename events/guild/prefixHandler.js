@@ -68,11 +68,11 @@ class prefixHandler {
                             ],
                         });
                     } else {
-                        cmd.run(client, message, args);
+                        cmd.run(message, args);
                         message.delete();
                     }
                 } else {
-                    cmd.run(client, message, args);
+                    cmd.run(message, args);
                     message.delete();
                 }
             } else if (!cmd.args) {
@@ -87,7 +87,7 @@ class prefixHandler {
                         ],
                     });
                 } else {
-                    cmd.run(client, message, args)
+                    cmd.run(message, args)
                     message.delete();
                 }
             }
