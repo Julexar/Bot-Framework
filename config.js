@@ -8,7 +8,7 @@ const config = {
         activities: [
             {
                 name: 'TTRPGs',
-                type: 0
+                type: 0,
             },
         ],
         status: 'online',
