@@ -15,19 +15,13 @@ class slashHandler {
                 const command = module.default;
                 let name;
 
-                if (!command.name || !command.run) {
-                    return slashCommandsTable.addRow(`${command.name || file}`, 'Failed', 'Missing Name/Run');
-                }
+                if (!command.name || !command.run) return slashCommandsTable.addRow(`${command.name || file}`, 'Failed', 'Missing Name/Run');
 
                 name = command.name;
 
-                if (command.nick) {
-                    name += ` (${command.nick})`;
-                }
+                if (command.nick) name += ` (${command.nick})`;
 
-                if (!command.enabled) {
-                    return slashCommandsTable.addRow(`${name}`, 'Failed', 'Disabled');
-                }
+                if (!command.enabled) return slashCommandsTable.addRow(`${name}`, 'Failed', 'Disabled');
 
                 client.slashCommands.set(command.name, command);
                 slashCommandsTable.addRow(name, 'Success');
