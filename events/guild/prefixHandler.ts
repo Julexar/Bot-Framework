@@ -1,4 +1,4 @@
-import { EmbedBuilder } from 'discord.js';
+import { EmbedBuilder, Message } from 'discord.js';
 import { client } from '../..';
 
 class prefixHandler {
@@ -11,7 +11,7 @@ class prefixHandler {
      *
      * @param {import("discord.js").Message} message
      */
-    async run(message) {
+    async run(message: Message) {
         const prefix = client.config.prefix;
 
         if (message.content.toLowerCase().startsWith(prefix)) {
@@ -24,7 +24,7 @@ class prefixHandler {
             if (cmd.permissions) {
                 if (cmd.permissions.member && cmd.permissions.member.length >= 1) {
                     if (!message.channel.permissionsFor(message.member).has(cmd.permissions.member)) {
-                        let perms = message.channel.permissionsFor(message.member).missing(cmd.permissions.member);
+                        const perms = message.channel.permissionsFor(message.member).missing(cmd.permissions.member);
                         return await message.reply({
                             embeds: [
                                 new EmbedBuilder()
@@ -37,7 +37,7 @@ class prefixHandler {
                     }
                 } else if (cmd.permissions.bot && cmd.permissions.bot.length >= 1) {
                     if (!message.channel.permissionsFor(message.guild.me).has(cmd.permissions.bot)) {
-                        let perms = message.channel.permissionsFor(message.guild.me).missing(cmd.permissions.bot);
+                        const perms = message.channel.permissionsFor(message.guild.me).missing(cmd.permissions.bot);
                         return await message.reply({
                             embeds: [
                                 new EmbedBuilder()
