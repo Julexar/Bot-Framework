@@ -2,6 +2,8 @@ import { CommandInteraction, EmbedBuilder } from 'discord.js';
 import { client } from '../..';
 
 class slashHandler {
+    name: string;
+    nick: string;
     constructor() {
         this.name = 'interactionCreate';
         this.nick = 'Slash';
