@@ -29,7 +29,7 @@ class DiscordClient extends Client {
 
             this.login(this.config.token);
         } catch (err) {
-            this.logDevError(err);
+            console.error(err);
         }
     }
 }
