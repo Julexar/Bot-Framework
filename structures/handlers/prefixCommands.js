@@ -15,15 +15,11 @@ class prefixHandler {
                 const command = module.default;
                 let name;
 
-                if (!command.name || !command.run) {
-                    return prefixCommandsTable.addRow(`${command.name || file}`, 'Failed', 'Missing Name/Run');
-                }
+                if (!command.name || !command.run) return prefixCommandsTable.addRow(`${command.name || file}`, 'Failed', 'Missing Name/Run');
 
                 name = command.name;
 
-                if (command.nick) {
-                    name += ` (${command.nick})`;
-                }
+                if (command.nick) name += ` (${command.nick})`;
 
                 client.prefixCommands.set(command.name, command);
                 prefixCommandsTable.addRow(name, 'Success');
