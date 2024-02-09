@@ -60,7 +60,11 @@ class prefixHandler {
                         }
                         return await message.reply({
                             embeds: [
-                                new EmbedBuilder().setColor('Red').setTitle('Error 400: Invalid Command').setDescription(`The Command requires you to use it\'s arguments. The correct usage is:\n\`${prefix}${cmd.name} ${usage}\``),
+                                new EmbedBuilder()
+                                    .setColor('Red')
+                                    .setTitle('Error 400: Invalid Command')
+                                    .setDescription(`The Command requires you to use it\'s arguments. The correct usage is:\n\`${prefix}${cmd.name} ${usage}\``)
+                                    .setTimestamp()
                             ],
                         });
                     } else {
@@ -74,7 +78,13 @@ class prefixHandler {
             } else if (!cmd.args) {
                 if (args.length > 0) {
                     return await message.reply({
-                        embeds: [new EmbedBuilder().setColor('Red').setTitle('Error 400: Invalid Command').setDescription(`This Command does not have any arguments. The correct usage is:\n\`${prefix}${cmd.name}\``).setTimestamp()],
+                        embeds: [
+                            new EmbedBuilder()
+                                .setColor('Red')
+                                .setTitle('Error 400: Invalid Command')
+                                .setDescription(`This Command does not have any arguments. The correct usage is:\n\`${prefix}${cmd.name}\``)
+                                .setTimestamp()
+                        ],
                     });
                 } else {
                     cmd.run(client, message, args)
