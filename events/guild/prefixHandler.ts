@@ -2,15 +2,13 @@ import { EmbedBuilder, Message } from 'discord.js';
 import { client } from '../..';
 
 class prefixHandler {
+    name: string;
+    nick: string;
     constructor() {
         this.name = 'messageCreate';
         this.nick = 'Prefix';
     }
 
-    /**
-     *
-     * @param {import("discord.js").Message} message
-     */
     async run(message: Message) {
         const prefix = client.config.prefix;
 
