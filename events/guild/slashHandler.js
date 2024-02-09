@@ -41,7 +41,7 @@ class slashHandler {
                 }
             }
 
-            command.run(client, interaction);
+            command.run(interaction);
         }
     }
 }
