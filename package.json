@@ -1,9 +1,9 @@
 {
-  "name": "test-bot",
+  "name": "bot-framework",
   "description": "A framework for creating Bots",
-  "version": "1.0.0",
+  "version": "1.0",
   "type": "module",
-  "main": "index.js",
+  "main": "index.ts",
   "dependencies": {
     "ascii-table": "^0.0.9",
     "discord.js": "^14.14.1",
