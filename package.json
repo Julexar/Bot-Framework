@@ -1,7 +1,7 @@
 {
-  "name": "test-bot",
+  "name": "bot-framework",
   "description": "A framework for creating Bots",
-  "version": "1.0.0",
+  "version": "1.0",
   "type": "module",
   "main": "index.js",
   "dependencies": {
