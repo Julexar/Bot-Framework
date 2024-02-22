@@ -22,7 +22,7 @@ class DiscordClient extends Client {
     async start() {
         try {
             const handlers = ['events', 'slashCommands', 'prefixCommands', 'contextCommands'];
-            handlers.forEach(async (handler) => {
+            handlers.forEach(async handler => {
                 const module = await import(`../handlers/${handler}.js`);
                 module.default.run();
             });

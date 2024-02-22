@@ -9,5 +9,12 @@
     "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security"
+  },
+  "scripts": {
+    "prettier": "npx prettier --write .",
+    "push": "git push -u origin master"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
