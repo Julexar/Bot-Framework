@@ -2,10 +2,10 @@ const fs = require('fs');
 
 const commands = [];
 
-const dirs = fs.readdirSync('./commands/prefix');
+const dirs = fs.readdirSync('./commands/context');
 
 for (const dir of dirs) {
-    const files = fs.readdirSync(`./commands/prefix/${dir}`).filter(file => file.endsWith('.js'));
+    const files = fs.readdirSync(`./commands/context/${dir}`).filter(file => file.endsWith('.js'));
 
     for (const file of files) {
         const command = require(`./${dir}/${file}`);
@@ -14,4 +14,4 @@ for (const dir of dirs) {
     }
 }
 
-export { commands };
+module.exports = commands;

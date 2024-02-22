@@ -1,9 +1,9 @@
-import Ascii from 'ascii-table';
-import { client } from '../..';
-import { commands } from '../../commands/context';
+const Ascii = require('ascii-table');
+const client = require('../..');
+const commands = require('../../commands/context');
 
 class contextHandler {
-    static async run() {
+    static run() {
         const commandsTable = new Ascii('Commands').setHeading('Name', 'Status', 'Reason');
 
         for (const command of commands) {
@@ -27,4 +27,4 @@ class contextHandler {
 
 const handler = contextHandler;
 
-export { handler };
+module.exports = handler;

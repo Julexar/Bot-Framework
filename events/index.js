@@ -1,4 +1,4 @@
-import fs from 'fs';
+const fs = require('fs');
 
 const events = [];
 
@@ -8,11 +8,10 @@ for (const dir of dirs) {
     const files = fs.readdirSync(`./events/${dir}`).filter(file => file.endsWith('.js'));
 
     for (const file of files) {
-        const module = await import(`../events/${dir}/${file}`);
-        const event = module.event;
+        const event = require(`../events/${dir}/${file}`);
 
         events.push(event);
     }
 }
 
-export { events };
+module.exports = events;
