@@ -1,4 +1,4 @@
-import { Guild } from 'discord.js'
+import { Guild, ApplicationCommandDataResolvable } from 'discord.js';
 import { client } from '../..';
 
 class Event {
@@ -8,18 +8,18 @@ class Event {
     }
 
     async run() {
-        const commandsArray = client.slashCommands;
+        const commandsArray = Array.from(client.slashCommands).values() as unknown as ApplicationCommandDataResolvable[];
 
-        client.user.setPresence(client.config.presence);
+        client.user?.setPresence(client.config.presence);
 
-        client.guilds.cache.forEach((guild: Guild) => {
-            guild.commands.set(commandsArray)
-            .then(() => {
-                console.log(`Successfully registered slash commands in ${guild.name}`);
-            })
-            .catch((err) => {
-                console.error(`Failed to register slash commands in ${guild.name}: ${err}`);
-            });
+        client.guilds.cache.forEach(async (guild: Guild) => {
+            try {
+                await guild.commands.set(commandsArray);
+
+                console.log(`Successfully registered Slash Commands in ${guild.name}`);
+            } catch (err) {
+                console.error(err);
+            }
         });
     }
 }

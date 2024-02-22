@@ -25,6 +25,4 @@ class prefixHandler {
     }
 }
 
-const handler = prefixHandler;
-
-export { handler };
+export const handler = prefixHandler;

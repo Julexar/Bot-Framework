@@ -25,6 +25,4 @@ class eventHandler {
     }
 }
 
-const handler = eventHandler;
-
-export { handler };
+export const handler = eventHandler;

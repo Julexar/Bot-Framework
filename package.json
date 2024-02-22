@@ -1,13 +1,20 @@
 {
-  "name": "bot-framework",
-  "description": "A framework for creating Bots",
-  "version": "1.0",
-  "type": "module",
-  "main": "index.ts",
-  "dependencies": {
-    "ascii-table": "^0.0.9",
-    "discord.js": "^14.14.1",
-    "dotenv": "^16.3.1",
-    "fs": "^0.0.1-security"
-  }
+	"name": "bot-framework",
+	"description": "A framework for creating Bots",
+	"version": "1.0",
+	"type": "module",
+	"main": "index.ts",
+	"dependencies": {
+		"ascii-table": "^0.0.9",
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.3.1",
+		"fs": "^0.0.1-security"
+	},
+	"scripts": {
+		"prettier": "npx prettier --write .",
+		"push": "git push -u origin master"
+	},
+	"devDependencies": {
+		"prettier": "^3.2.5"
+	}
 }

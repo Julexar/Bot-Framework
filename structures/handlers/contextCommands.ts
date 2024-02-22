@@ -25,6 +25,4 @@ class contextHandler {
     }
 }
 
-const handler = contextHandler;
-
-export { handler };
+export const handler = contextHandler;

@@ -1,12 +1,12 @@
-import { Client, Collection, GatewayIntentBits, Guild } from "discord.js";
-import { config } from "../../config.ts";
+import { Client, Collection, GatewayIntentBits } from 'discord.js';
+import { config } from '../../config.ts';
 
 class DiscordClient extends Client {
     slashCommands: Collection<string, any>;
     prefixCommands: Collection<string, any>;
     contextCommands: Collection<string, any>;
-    config: Config;
-    
+    config: typeof config;
+
     constructor() {
         super({
             intents: [
@@ -24,7 +24,7 @@ class DiscordClient extends Client {
         this.config = config;
     }
 
-    async start() {
+    start() {
         try {
             ['events', 'slashCommands', 'prefixCommands', 'contextCommands'].forEach(async handler => {
                 const module = await import(`../handlers/${handler}.ts`);

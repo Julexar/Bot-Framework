@@ -25,6 +25,4 @@ class slashHandler {
     }
 }
 
-const handler = slashHandler;
-
-export { handler };
+export const handler = slashHandler;
