@@ -1,4 +1,4 @@
-import { Guild, ApplicationCommandDataResolvable } from 'discord.js';
+import { Guild, ApplicationCommandDataResolvable, PresenceData } from 'discord.js';
 import { client } from '../..';
 
 class Event {
@@ -10,7 +10,7 @@ class Event {
     async run() {
         const commandsArray = Array.from(client.slashCommands).values() as unknown as ApplicationCommandDataResolvable[];
 
-        client.user?.setPresence(client.config.presence);
+        client.user?.setPresence(client.config.presence as PresenceData);
 
         client.guilds.cache.forEach(async (guild: Guild) => {
             try {
