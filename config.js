@@ -2,12 +2,12 @@ import 'dotenv/config';
 
 const config = {
     token: process.env.BOT_TOKEN,
-    default_prefix: 'r!',
+    default_prefix: 'b!',
     owners: ['676518256282042393'],
     presence: {
         activities: [
             {
-                name: 'TTRPGs',
+                name: 'Frameworks',
                 type: 0,
             },
         ],
